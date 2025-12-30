@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A captivating, moody shot of a person studying charts in a dimly lit, sophisticated environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1716799323871-d82962608d7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkZXNrJTIwY2hhcnRzfGVufDB8fHx8MTc2NzA1ODg0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "desk charts"
+    },
+    {
+      "id": "book-cover",
+      "description": "A high-quality, professional mockup of the 'Mente Bursátil' book cover.",
+      "imageUrl": "https://images.unsplash.com/photo-1521123845560-14093637aa7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9vayUyMGNvdmVyfGVufDB8fHx8MTc2Njk1NDM4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "author-photo",
+      "description": "A professional and approachable headshot of the author.",
+      "imageUrl": "https://images.unsplash.com/photo-1733231291514-06895ab0f5e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YXV0aG9yJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY3MDU4ODQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "author portrait"
+    }
+  ]
 }
