@@ -2,6 +2,10 @@
 # https://firebase.google.com/docs/app-hosting/configure
 
 runConfig:
+  # The number of CPUs to allocate to the app. This is a common setting.
+  cpu: 1
+  # The amount of memory to allocate to the app. 512MiB is a good default.
+  memoryMiB: 512
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
-  maxInstances: 1
+  maxInstances: 2
