@@ -35,7 +35,7 @@ export function Presentation() {
               Aprenderás a navegar la volatilidad con calma, a tomar decisiones con claridad y a ejecutar tu plan con una disciplina de acero.
             </p>
             <div className="mt-8 text-center md:text-left">
-              <p className="text-5xl font-bold text-primary font-headline">$29.99</p>
+              <p className="text-5xl font-bold text-primary font-headline">USD 29.99</p>
               <p className="text-sm text-muted-foreground mt-1">Pago único. Edición digital.</p>
             </div>
             <Button size="lg" className="mt-8 w-full md:w-auto">
