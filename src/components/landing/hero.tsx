@@ -35,10 +35,10 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground shadow-lg">
-          Domina tu Psicología para Conquistar el Mercado
+          El error que más caro se paga es el que nadie te cuenta.
         </h1>
         <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-foreground/80">
-          El 90% del éxito en el trading no está en la estrategia, sino en tu mente. Descubre cómo forjar la mentalidad de un ganador.
+          Una mirada honesta sobre trading, riesgo y decisiones.
         </p>
         <div className="mt-10">
           <Button size="lg" asChild>

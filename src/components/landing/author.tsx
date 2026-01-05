@@ -26,10 +26,25 @@ export function Author() {
             </h2>
             <div className="mt-6 space-y-4 text-lg text-muted-foreground">
               <p>
-                Después de una década en las trincheras de los mercados financieros y de quemar varias cuentas, entendí una verdad fundamental: la estrategia más brillante es inútil si la mente que la ejecuta es frágil.
+                Fui trader.
               </p>
               <p>
-                Pasé años no solo estudiando los mercados, sino también la psicología del rendimiento, la neurociencia y las filosofías estoicas. 'Mente Bursátil' es la síntesis de ese viaje: un manual práctico para construir la infraestructura mental necesaria para prosperar en el caos del trading.
+                Operé mercados, estudié estrategias, ejecuté sistemas y repetí errores.
+              </p>
+              <p>
+                Perdí dinero, perdí claridad y entendí que algo que nadie explica cuando empezás: El problema no suele ser la técnica, sino la mente desde la que operás.
+              </p>
+              <p>
+                Después de años dentro del mercado, decidí salir para mirar con distancia lo que realmente ocurre cuando una persona toma decisiones bajo presión.
+              </p>
+              <p>
+                Mente Bursátil nace de ahí.
+              </p>
+              <p>
+                No desde el éxito exhibido, sino desde la experiencia real, los errores repetidos y la necesidad de entender por qué nos saboteamos aún sabiendo que “habría que hacer”.
+              </p>
+              <p>
+                Este libro lo escribe alguien que estuvo ahí y eligió pensar más profundo.
               </p>
             </div>
           </div>
