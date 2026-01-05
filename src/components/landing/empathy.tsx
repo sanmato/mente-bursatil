@@ -1,8 +1,8 @@
 export function Empathy() {
   const painPoints = [
-    `¿Cuantas decisiones tomaste porque "a otros les funciono"?`,
+    `¿Cuantas decisiones tomaste porque "a otros les funcionó"?`,
     "¿Qué error evitás mirar desde hace tiempo?",
-    "¿Cuánto te desordena una pala operación?",
+    "¿Cuánto te desordena una mala operación?",
     "¿Qué parte de vos toma las decisiones cuando operás?",
   ];
 
