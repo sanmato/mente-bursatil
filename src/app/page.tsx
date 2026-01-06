@@ -1,3 +1,4 @@
+
 import { Author } from '@/components/landing/author';
 import { Benefits } from '@/components/landing/benefits';
 import { CtaSection } from '@/components/landing/cta-section';
