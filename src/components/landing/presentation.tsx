@@ -1,9 +1,40 @@
+"use client";
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { Loader2 } from 'lucide-react';
 
 export function Presentation() {
   const bookImage = PlaceHolderImages.find((p) => p.id === 'book-cover');
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        window.location.href = data.init_point;
+      } else {
+        throw new Error(data.error || 'Algo salió mal');
+      }
+    } catch (error) {
+      toast({
+        title: 'Error al procesar el pago',
+        description: error instanceof Error ? error.message : 'Por favor, intenta de nuevo más tarde.',
+        variant: 'destructive',
+      });
+      setIsLoading(false);
+    }
+  };
 
   return (
     <section id="comprar" className="py-20 md:py-32 bg-card">
@@ -38,8 +69,15 @@ export function Presentation() {
               <p className="text-5xl font-bold text-primary font-headline">USD 29.99</p>
               <p className="text-sm text-muted-foreground mt-1">Pago único. Edición digital.</p>
             </div>
-            <Button size="lg" className="mt-8 w-full md:w-auto">
-              Comprar Ahora y Transforma tu Trading
+            <Button size="lg" className="mt-8 w-full md:w-auto" onClick={handleCheckout} disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Procesando...
+                </>
+              ) : (
+                'Comprar Ahora y Transforma tu Trading'
+              )}
             </Button>
           </div>
         </div>
