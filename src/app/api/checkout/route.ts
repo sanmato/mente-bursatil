@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
           description: 'Acceso de por vida a la edición digital del libro Mente Bursátil.',
         },
       ],
-      back_urls: {
+      back_url: {
         success: `${req.nextUrl.origin}/success`,
         failure: `${req.nextUrl.origin}/`,
         pending: `${req.nextUrl.origin}/`,
