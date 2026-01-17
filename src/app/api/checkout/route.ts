@@ -41,9 +41,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ id: result.id, init_point: result.init_point });
 
   } catch (error) {
-    console.error('Error al crear la preferencia de Mercado Pago:', error);
+    console.error('Error detallado al crear la preferencia de Mercado Pago:', JSON.stringify(error, null, 2));
     return NextResponse.json(
-      { error: 'No se pudo crear la preferencia de pago.' },
+      { error: 'No se pudo crear la preferencia de pago. Revisa la consola del servidor para más detalles.' },
       { status: 500 }
     );
   }
