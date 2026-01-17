@@ -1,31 +1,49 @@
 // @ts-nocheck
 import { NextRequest, NextResponse } from 'next/server';
-// Se comentan las importaciones de Mercado Pago para la simulación
-// import { MercadoPagoConfig, Preference } from 'mercadopago';
+import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 export async function POST(req: NextRequest) {
-  console.log("Servidor: Recibida solicitud en /api/checkout. Respondiendo con un mock.");
+  const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
 
-  // --- IMPLEMENTACIÓN DE MOCK ---
-  // Simulamos una respuesta exitosa para probar la conexión frontend <-> backend.
+  if (!accessToken) {
+    console.error("MERCADOPAGO_ACCESS_TOKEN no está configurado.");
+    return NextResponse.json(
+      { error: 'Error de configuración del servidor: Falta el token de acceso.' },
+      { status: 500 }
+    );
+  }
+
+  const client = new MercadoPagoConfig({ accessToken });
+  const preference = new Preference(client);
+
   try {
-    const mockPreference = {
-      id: 'MOCK_PREFERENCE_ID_12345',
-      // Esta es una URL de prueba falsa. En un caso real, te redirigiría a Mercado Pago.
-      init_point: 'https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=MOCK_PREFERENCE_ID_12345'
+    const body = {
+      items: [
+        {
+          id: 'mente-bursatil-01',
+          title: 'Mente Bursátil - Edición Digital',
+          quantity: 1,
+          unit_price: 25000,
+          currency_id: 'ARS',
+          description: 'Acceso de por vida a la edición digital del libro Mente Bursátil.',
+        },
+      ],
+      back_urls: {
+        success: `${req.nextUrl.origin}/success`,
+        failure: `${req.nextUrl.origin}/`,
+        pending: `${req.nextUrl.origin}/`,
+      },
+      auto_return: 'approved',
     };
 
-    // Simulamos una pequeña demora de red
-    await new Promise(resolve => setTimeout(resolve, 500));
+    const result = await preference.create({ body });
     
-    console.log("Servidor: Mock exitoso. Enviando init_point:", mockPreference.init_point);
-    return NextResponse.json({ id: mockPreference.id, init_point: mockPreference.init_point });
+    return NextResponse.json({ id: result.id, init_point: result.init_point });
 
   } catch (error) {
-    // Este bloque no debería ejecutarse con el mock, pero se mantiene por seguridad.
-    console.error('Error en el mock de /api/checkout:', error);
+    console.error('Error al crear la preferencia de Mercado Pago:', error);
     return NextResponse.json(
-      { error: 'Hubo un error en el mock del servidor.' },
+      { error: 'No se pudo crear la preferencia de pago.' },
       { status: 500 }
     );
   }
