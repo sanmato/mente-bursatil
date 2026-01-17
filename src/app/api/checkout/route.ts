@@ -28,12 +28,12 @@ export async function POST(req: NextRequest) {
           description: 'Acceso de por vida a la edición digital del libro Mente Bursátil.',
         },
       ],
-      back_url: {
+      back_urls: {
         success: `${req.nextUrl.origin}/success`,
         failure: `${req.nextUrl.origin}/`,
         pending: `${req.nextUrl.origin}/`,
       },
-      auto_return: 'approved',
+      // auto_return: 'approved',
     };
 
     const result = await preference.create({ body });
