@@ -2,13 +2,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
-// Get the access token from environment variables
-const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
-
 export async function POST(req: NextRequest) {
+  // Get the access token from environment variables inside the handler
+  const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
+
   // Runtime check to ensure the access token is configured
   if (!accessToken) {
-    console.error("Error: MERCADOPAGO_ACCESS_TOKEN is not set in .env.local");
+    console.error("Error: MERCADOPAGO_ACCESS_TOKEN is not set in .env.local or is not available in the server environment.");
     return NextResponse.json(
       { error: 'El servidor no está configurado correctamente para procesar pagos.' },
       { status: 500 }
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ id: createdPreference.id, init_point: createdPreference.init_point });
   } catch (error) {
-    console.error('Error al crear la preferencia de pago:', error);
+    console.error('Error creating payment preference:', error);
     return NextResponse.json(
       { error: 'Hubo un error al comunicarse con Mercado Pago. Por favor, intenta de nuevo.' },
       { status: 500 }
